@@ -1,0 +1,2855 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bữa Tối Healthy Hà Nội — 15 Món Thanh Đạm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ========== CSS RESET & VARIABLES ========== */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #2D6A4F;
+      --primary-light: #52B788;
+      --primary-lighter: #B7E4C7;
+      --accent: #F4A261;
+      --accent-warm: #E76F51;
+      --bg: #FAFAF5;
+      --bg-card: #FFFFFF;
+      --bg-card-home: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+      --bg-card-out: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+      --text: #1B1B1B;
+      --text-secondary: #6B7280;
+      --text-muted: #9CA3AF;
+      --border: #E5E7EB;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
+      --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.16);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --radius-xs: 6px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --font: 'Be Vietnam Pro', system-ui, sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0F172A;
+      --bg-card: #1E293B;
+      --bg-card-home: linear-gradient(135deg, #1a2e1a 0%, #1E293B 100%);
+      --bg-card-out: linear-gradient(135deg, #1a1e2e 0%, #1E293B 100%);
+      --text: #F1F5F9;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --border: #334155;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.4);
+      --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      position: relative;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px 40px;
+      background: linear-gradient(135deg, #2D6A4F 0%, #40916C 40%, #52B788 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 30%, rgba(244, 162, 97, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-particles span {
+      position: absolute;
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      animation: floatUp linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .hero-emoji {
+      font-size: 56px;
+      margin-bottom: 12px;
+      animation: bounceIn 0.8s ease-out;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      animation: fadeInUp 0.6s ease-out 0.1s both;
+    }
+
+    .hero .subtitle {
+      font-size: clamp(14px, 2.5vw, 18px);
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 300;
+      margin-bottom: 8px;
+      animation: fadeInUp 0.6s ease-out 0.2s both;
+    }
+
+    .hero .date-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 24px;
+      animation: fadeInUp 0.6s ease-out 0.3s both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeInUp 0.6s ease-out 0.4s both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(244, 162, 97, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(244, 162, 97, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .btn-ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+      pointer-events: none;
+    }
+
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    /* ========== THEME TOGGLE ========== */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: var(--bg-card);
+      color: var(--text);
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .theme-toggle:hover {
+      transform: rotate(30deg) scale(1.1);
+    }
+
+    /* ========== SEAL MASCOT ========== */
+    .seal-mascot {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 999;
+      width: 64px;
+      height: 64px;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      animation: sealBob 3s ease-in-out infinite;
+    }
+
+    .seal-mascot svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+      transition: transform 0.3s ease;
+    }
+
+    .seal-mascot:hover {
+      transform: scale(1.2);
+      animation-play-state: paused;
+    }
+
+    .seal-mascot:hover svg {
+      transform: rotate(-8deg);
+    }
+
+    .seal-mascot:active {
+      transform: scale(0.95);
+    }
+
+    .seal-label {
+      position: absolute;
+      bottom: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-muted);
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity var(--transition);
+      font-family: var(--font);
+      letter-spacing: 0.5px;
+    }
+
+    .seal-mascot:hover .seal-label {
+      opacity: 1;
+    }
+
+    @keyframes sealBob {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .seal-mascot {
+        width: 48px;
+        height: 48px;
+        bottom: 16px;
+        left: 16px;
+      }
+    }
+
+    /* ========== FILTER BAR ========== */
+    .filter-section {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      transition: background var(--transition);
+    }
+
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border-radius: 50px;
+      padding: 4px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .filter-btn {
+      flex: 1;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: transparent;
+      cursor: pointer;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 2px 10px rgba(45, 106, 79, 0.3);
+    }
+
+    .filter-btn:not(.active):hover {
+      color: var(--text);
+      background: rgba(45, 106, 79, 0.06);
+    }
+
+    /* ========== CARDS GRID ========== */
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    /* ========== FOOD CARD ========== */
+    .food-card {
+      background: var(--bg-card-home);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all var(--transition);
+      opacity: 0;
+      transform: translateY(30px);
+      position: relative;
+    }
+
+    .food-card.out {
+      background: var(--bg-card-out);
+    }
+
+    .food-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .food-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-light);
+    }
+
+    .food-card.hidden {
+      display: none;
+    }
+
+    .card-header {
+      padding: 24px 24px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .card-emoji {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary-lighter), #d8f3dc);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      flex-shrink: 0;
+      transition: transform var(--transition);
+    }
+
+    .food-card.out .card-emoji {
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    }
+
+    .food-card:hover .card-emoji {
+      transform: scale(1.1) rotate(-5deg);
+    }
+
+    .card-titles {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-titles h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+
+    .card-titles .card-name-en {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .card-body {
+      padding: 16px 24px 20px;
+    }
+
+    .card-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .tag-home {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .tag-out {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    [data-theme="dark"] .tag-home {
+      background: #064e3b55;
+      color: #6ee7b7;
+    }
+
+    [data-theme="dark"] .tag-out {
+      background: #1e3a5f55;
+      color: #93c5fd;
+    }
+
+    .tag-cal {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    [data-theme="dark"] .tag-cal {
+      background: #78350f55;
+      color: #fcd34d;
+    }
+
+    .card-macros {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 14px;
+    }
+
+    .macro-bar {
+      flex: 1;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--border);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .macro-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 1s ease-out;
+      width: 0;
+    }
+
+    .macro-bar.protein .macro-bar-fill {
+      background: #ef4444;
+    }
+
+    .macro-bar.carb .macro-bar-fill {
+      background: #3b82f6;
+    }
+
+    .macro-bar.fat .macro-bar-fill {
+      background: #f59e0b;
+    }
+
+    .macro-labels {
+      display: flex;
+      gap: 12px;
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    .macro-labels span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .macro-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .macro-dot.p {
+      background: #ef4444;
+    }
+
+    .macro-dot.c {
+      background: #3b82f6;
+    }
+
+    .macro-dot.f {
+      background: #f59e0b;
+    }
+
+    .card-highlight {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .card-highlight::before {
+      content: '✦';
+      color: var(--accent);
+    }
+
+    /* ========== MODAL ========== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal {
+      background: var(--bg-card);
+      border-radius: 24px 24px 0 0;
+      max-width: 640px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .modal-overlay.active .modal {
+      transform: translateY(0);
+    }
+
+    .modal-handle {
+      width: 40px;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      margin: 12px auto;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: var(--bg);
+      color: var(--text-secondary);
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition);
+      z-index: 1;
+    }
+
+    .modal-close:hover {
+      background: var(--border);
+    }
+
+    .modal-hero {
+      padding: 32px 32px 20px;
+      text-align: center;
+    }
+
+    .modal-emoji {
+      font-size: 56px;
+      margin-bottom: 12px;
+      display: block;
+      animation: bounceIn 0.5s ease-out;
+    }
+
+    .modal-hero h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .modal-hero .modal-name-en {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .modal-cal-ring {
+      width: 120px;
+      height: 120px;
+      margin: 16px auto;
+      position: relative;
+    }
+
+    .modal-cal-ring svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .modal-cal-ring circle {
+      fill: none;
+      stroke-width: 8;
+      stroke-linecap: round;
+    }
+
+    .modal-cal-ring .ring-bg {
+      stroke: var(--border);
+    }
+
+    .modal-cal-ring .ring-fill {
+      stroke: var(--primary-light);
+      stroke-dasharray: 339.292;
+      stroke-dashoffset: 339.292;
+      transition: stroke-dashoffset 1.2s ease-out;
+    }
+
+    .modal-cal-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-cal-num {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .modal-cal-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .modal-macros-bar {
+      display: flex;
+      height: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 0 32px 8px;
+    }
+
+    .modal-macros-bar>div {
+      transition: width 0.8s ease-out;
+    }
+
+    .modal-macros-bar .m-protein {
+      background: #ef4444;
+    }
+
+    .modal-macros-bar .m-carb {
+      background: #3b82f6;
+    }
+
+    .modal-macros-bar .m-fat {
+      background: #f59e0b;
+    }
+
+    .modal-macros-legend {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      padding: 0 32px;
+    }
+
+    .modal-macros-legend span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .modal-section {
+      padding: 0 32px 20px;
+    }
+
+    .modal-section-title {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .modal-section p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .benefit-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .benefit-pill {
+      padding: 6px 14px;
+      background: #d1fae5;
+      color: #065f46;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      animation: fadeInUp 0.3s ease-out both;
+    }
+
+    [data-theme="dark"] .benefit-pill {
+      background: #064e3b55;
+      color: #6ee7b7;
+    }
+
+    .address-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      background: var(--bg);
+      border-radius: var(--radius-sm);
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .address-item::before {
+      content: '📍';
+    }
+
+    .modal-footer {
+      padding: 20px 32px 32px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-choose {
+      flex: 1;
+      padding: 16px 24px;
+      border: none;
+      border-radius: 14px;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition);
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(45, 106, 79, 0.3);
+    }
+
+    .btn-choose:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(45, 106, 79, 0.4);
+    }
+
+    .btn-choose:active {
+      transform: scale(0.98);
+    }
+
+    /* ========== SUGGESTION MODAL ========== */
+    .suggest-modal .modal {
+      border-radius: 24px;
+      max-height: 85vh;
+    }
+
+    .suggest-content {
+      padding: 24px 32px 32px;
+      text-align: center;
+    }
+
+    .suggest-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .suggest-explanation {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      text-align: left;
+      padding: 16px;
+      background: var(--bg);
+      border-radius: var(--radius-sm);
+      border-left: 4px solid var(--primary-light);
+    }
+
+    .suggest-card-mini {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-align: left;
+      margin-bottom: 20px;
+      border: 2px solid var(--primary-light);
+    }
+
+    .suggest-card-mini .card-emoji {
+      width: 56px;
+      height: 56px;
+      font-size: 28px;
+    }
+
+    .suggest-card-mini h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .suggest-card-mini p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .suggest-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .suggest-actions .btn {
+      flex: 1;
+      justify-content: center;
+      border-radius: 14px;
+    }
+
+    .btn-another {
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-another:hover {
+      background: var(--border);
+    }
+
+    /* ========== HISTORY DRAWER ========== */
+    .history-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 380px;
+      max-width: 90vw;
+      height: 100vh;
+      background: var(--bg-card);
+      z-index: 3000;
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .history-drawer.open {
+      transform: translateX(0);
+    }
+
+    .history-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 2999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .history-backdrop.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .history-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .history-header h3 {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .history-header-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: var(--bg);
+      color: var(--text-secondary);
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition);
+    }
+
+    .btn-icon:hover {
+      background: var(--border);
+      color: var(--text);
+    }
+
+    .history-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 24px;
+    }
+
+    .history-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    .history-empty span {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .history-empty p {
+      font-size: 14px;
+    }
+
+    .history-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      animation: fadeInUp 0.3s ease-out both;
+    }
+
+    .history-item:last-child {
+      border-bottom: none;
+    }
+
+    .history-date {
+      text-align: center;
+      min-width: 48px;
+    }
+
+    .history-date .day {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .history-date .month {
+      font-size: 10px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .history-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .history-info h4 {
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .history-info .h-cal {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .history-emoji {
+      font-size: 24px;
+    }
+
+    .history-stats {
+      padding: 20px 24px;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+
+    .stat-box {
+      text-align: center;
+      padding: 12px;
+      background: var(--bg);
+      border-radius: var(--radius-sm);
+    }
+
+    .stat-num {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .stat-label {
+      font-size: 10px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* ========== TOAST ========== */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5000;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .toast {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      background: #1E293B;
+      color: #fff;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: var(--shadow-lg);
+      animation: toastIn 0.4s ease-out, toastOut 0.3s ease-in 2.5s forwards;
+    }
+
+    [data-theme="dark"] .toast {
+      background: #f1f5f9;
+      color: #1E293B;
+    }
+
+    @keyframes toastIn {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes toastOut {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        transform: translateY(10px);
+        opacity: 0;
+      }
+    }
+
+    /* ========== CONFETTI ========== */
+    .confetti-piece {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      z-index: 6000;
+      pointer-events: none;
+      animation: confettiFall 1.5s ease-in forwards;
+    }
+
+    @keyframes confettiFall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    /* ========== SCROLL INDICATOR ========== */
+    .scroll-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: all var(--transition);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+
+    .scroll-top:hover {
+      transform: translateY(-3px);
+    }
+
+    /* ========== ANIMATIONS ========== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0.3);
+        opacity: 0;
+      }
+
+      50% {
+        transform: scale(1.1);
+      }
+
+      70% {
+        transform: scale(0.95);
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .hero {
+        min-height: 340px;
+        padding: 50px 20px 30px;
+      }
+
+      .modal {
+        border-radius: 20px 20px 0 0;
+      }
+
+      .modal-section,
+      .modal-hero,
+      .modal-footer {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .suggest-content {
+        padding: 20px 24px 24px;
+      }
+
+      .filter-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+      }
+
+      .modal-macros-bar {
+        margin: 0 24px 8px;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1025px) {
+      .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .modal-overlay {
+        align-items: center;
+      }
+
+      .modal {
+        border-radius: 24px;
+        max-height: 85vh;
+      }
+
+      .modal-overlay.active .modal {
+        transform: translateY(0);
+      }
+    }
+
+    /* ========== SCROLLBAR ========== */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--text-muted);
+    }
+
+    /* ========== VIEW TOGGLE ========== */
+    .view-toggle {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 3px;
+      box-shadow: var(--shadow-sm);
+      margin-left: 12px;
+    }
+
+    .view-toggle-btn {
+      width: 36px;
+      height: 36px;
+      border: none;
+      border-radius: 10px;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition);
+    }
+
+    .view-toggle-btn.active {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(45, 106, 79, 0.3);
+    }
+
+    .view-toggle-btn:not(.active):hover {
+      color: var(--text);
+      background: rgba(45, 106, 79, 0.06);
+    }
+
+    /* ========== CAROUSEL VIEW ========== */
+    .carousel-container {
+      display: none;
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+      overflow: hidden;
+    }
+
+    .carousel-container.active {
+      display: block;
+    }
+
+    .main-content.carousel-hidden {
+      display: none;
+    }
+
+    .carousel-viewport {
+      position: relative;
+      height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1200px;
+    }
+
+    .carousel-track {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-card {
+      position: absolute;
+      width: 360px;
+      max-width: 85vw;
+      background: var(--bg-card-home);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-origin: center center;
+      will-change: transform, opacity, filter;
+    }
+
+    .carousel-card.out {
+      background: var(--bg-card-out);
+    }
+
+    .carousel-card[data-pos="0"] {
+      transform: translateX(0) scale(1);
+      z-index: 10;
+      opacity: 1;
+      filter: blur(0) brightness(1);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .carousel-card[data-pos="-1"] {
+      transform: translateX(-75%) scale(0.82);
+      z-index: 5;
+      opacity: 0.7;
+      filter: blur(2px) brightness(0.85);
+      box-shadow: var(--shadow-md);
+    }
+
+    .carousel-card[data-pos="1"] {
+      transform: translateX(75%) scale(0.82);
+      z-index: 5;
+      opacity: 0.7;
+      filter: blur(2px) brightness(0.85);
+      box-shadow: var(--shadow-md);
+    }
+
+    .carousel-card[data-pos="-2"] {
+      transform: translateX(-130%) scale(0.65);
+      z-index: 2;
+      opacity: 0.35;
+      filter: blur(5px) brightness(0.7);
+    }
+
+    .carousel-card[data-pos="2"] {
+      transform: translateX(130%) scale(0.65);
+      z-index: 2;
+      opacity: 0.35;
+      filter: blur(5px) brightness(0.7);
+    }
+
+    .carousel-card[data-pos="hidden"] {
+      transform: translateX(0) scale(0.4);
+      z-index: 0;
+      opacity: 0;
+      pointer-events: none;
+      filter: blur(10px);
+    }
+
+    .carousel-card[data-pos="0"]:hover {
+      transform: translateX(0) scale(1.03);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+    }
+
+    /* Carousel navigation */
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: none;
+      background: var(--bg-card);
+      color: var(--text);
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition);
+    }
+
+    .carousel-nav:hover {
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .carousel-nav:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    .carousel-nav.prev {
+      left: 8px;
+    }
+
+    .carousel-nav.next {
+      right: 8px;
+    }
+
+    /* Carousel dots */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+      padding: 0 20px;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: none;
+      background: var(--border);
+      cursor: pointer;
+      transition: all var(--transition);
+      padding: 0;
+    }
+
+    .carousel-dot.active {
+      background: var(--primary);
+      transform: scale(1.3);
+      box-shadow: 0 0 8px rgba(45, 106, 79, 0.4);
+    }
+
+    .carousel-dot:hover:not(.active) {
+      background: var(--primary-light);
+      transform: scale(1.15);
+    }
+
+    /* Carousel counter */
+    .carousel-counter {
+      text-align: center;
+      margin-top: 14px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .carousel-counter .current {
+      color: var(--primary);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    @media (max-width: 768px) {
+      .carousel-viewport {
+        height: 380px;
+      }
+
+      .carousel-card {
+        width: 300px;
+      }
+
+      .carousel-card[data-pos="-1"] {
+        transform: translateX(-65%) scale(0.78);
+        opacity: 0.5;
+      }
+
+      .carousel-card[data-pos="1"] {
+        transform: translateX(65%) scale(0.78);
+        opacity: 0.5;
+      }
+
+      .carousel-card[data-pos="-2"],
+      .carousel-card[data-pos="2"] {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .carousel-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+
+      .carousel-nav.prev {
+        left: 4px;
+      }
+
+      .carousel-nav.next {
+        right: 4px;
+      }
+
+      .filter-row {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .view-toggle {
+        margin-left: 0;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
+
+  <!-- Seal Mascot -->
+  <div class="seal-mascot" id="sealMascot" title="Xin chào Hải Cẩu! 🦭">
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <!-- Body -->
+      <ellipse cx="60" cy="72" rx="38" ry="32" fill="#8EACBB" />
+      <!-- Belly -->
+      <ellipse cx="60" cy="78" rx="26" ry="22" fill="#D4E4EC" />
+      <!-- Head -->
+      <circle cx="60" cy="38" r="26" fill="#9BBAC9" />
+      <!-- Face lighter area -->
+      <ellipse cx="60" cy="42" rx="20" ry="17" fill="#C8DDE6" />
+      <!-- Left eye -->
+      <circle cx="50" cy="34" r="4" fill="#2D3748" />
+      <circle cx="51.5" cy="32.5" r="1.5" fill="#fff" />
+      <!-- Right eye -->
+      <circle cx="70" cy="34" r="4" fill="#2D3748" />
+      <circle cx="71.5" cy="32.5" r="1.5" fill="#fff" />
+      <!-- Nose -->
+      <ellipse cx="60" cy="42" rx="5" ry="3.5" fill="#4A6670" />
+      <ellipse cx="60" cy="41" rx="3" ry="1.5" fill="#6B8A96" />
+      <!-- Whiskers left -->
+      <line x1="35" y1="40" x2="50" y2="42" stroke="#5A7A86" stroke-width="1" stroke-linecap="round" />
+      <line x1="34" y1="44" x2="49" y2="44" stroke="#5A7A86" stroke-width="1" stroke-linecap="round" />
+      <line x1="36" y1="48" x2="50" y2="46" stroke="#5A7A86" stroke-width="1" stroke-linecap="round" />
+      <!-- Whiskers right -->
+      <line x1="85" y1="40" x2="70" y2="42" stroke="#5A7A86" stroke-width="1" stroke-linecap="round" />
+      <line x1="86" y1="44" x2="71" y2="44" stroke="#5A7A86" stroke-width="1" stroke-linecap="round" />
+      <line x1="84" y1="48" x2="70" y2="46" stroke="#5A7A86" stroke-width="1" stroke-linecap="round" />
+      <!-- Mouth -->
+      <path d="M54 47 Q57 51 60 47 Q63 51 66 47" fill="none" stroke="#4A6670" stroke-width="1.5"
+        stroke-linecap="round" />
+      <!-- Left flipper -->
+      <ellipse cx="28" cy="70" rx="12" ry="6" fill="#7A9DAB" transform="rotate(-25 28 70)" />
+      <!-- Right flipper -->
+      <ellipse cx="92" cy="70" rx="12" ry="6" fill="#7A9DAB" transform="rotate(25 92 70)" />
+      <!-- Tail -->
+      <ellipse cx="60" cy="102" rx="14" ry="6" fill="#7A9DAB" />
+      <!-- Blush -->
+      <ellipse cx="42" cy="44" rx="6" ry="3" fill="#F4A2A2" opacity="0.35" />
+      <ellipse cx="78" cy="44" rx="6" ry="3" fill="#F4A2A2" opacity="0.35" />
+    </svg>
+    <span class="seal-label">Hải Cẩu</span>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="hero-emoji">🥗</div>
+      <h1>Bữa Tối Healthy Hà Nội</h1>
+      <p class="subtitle">15 món ăn thanh đạm · Cân bằng dinh dưỡng · Giữ gìn vóc dáng · Sống khỏe mạnh</p>
+      <div class="date-badge">
+        <span>📅</span>
+        <span id="heroDate"></span>
+      </div>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="showSuggestion()">
+          ✨ Hôm nay ăn gì?
+        </button>
+        <button class="btn btn-secondary" onclick="openHistory()">
+          📋 Lịch sử
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Filter -->
+  <nav class="filter-section">
+    <div class="filter-row"
+      style="display:flex;align-items:center;justify-content:center;max-width:720px;margin:0 auto;flex-wrap:wrap">
+      <div class="filter-bar" style="flex:1;min-width:0">
+        <button class="filter-btn active" data-filter="all" onclick="filterCards('all', this)">Tất cả (15)</button>
+        <button class="filter-btn" data-filter="home" onclick="filterCards('home', this)">🏠 Tại nhà (9)</button>
+        <button class="filter-btn" data-filter="out" onclick="filterCards('out', this)">🍽️ Ăn ngoài (6)</button>
+      </div>
+      <div class="view-toggle">
+        <button class="view-toggle-btn active" data-view="grid" onclick="switchView('grid')"
+          title="Dạng lưới">▦</button>
+        <button class="view-toggle-btn" data-view="carousel" onclick="switchView('carousel')"
+          title="Dạng xoay">◑</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Cards Grid View -->
+  <main class="main-content" id="gridView">
+    <div class="cards-grid" id="cardsGrid"></div>
+  </main>
+
+  <!-- Cards Carousel View -->
+  <div class="carousel-container" id="carouselView">
+    <div class="carousel-viewport">
+      <button class="carousel-nav prev" onclick="carouselPrev()" aria-label="Previous">‹</button>
+      <div class="carousel-track" id="carouselTrack"></div>
+      <button class="carousel-nav next" onclick="carouselNext()" aria-label="Next">›</button>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+    <div class="carousel-counter" id="carouselCounter"></div>
+  </div>
+
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="detailModal" onclick="closeModalOutside(event, 'detailModal')">
+    <div class="modal">
+      <div class="modal-handle"></div>
+      <button class="modal-close" onclick="closeModal('detailModal')">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- Suggestion Modal -->
+  <div class="modal-overlay suggest-modal" id="suggestModal" onclick="closeModalOutside(event, 'suggestModal')">
+    <div class="modal">
+      <div class="modal-handle"></div>
+      <button class="modal-close" onclick="closeModal('suggestModal')">✕</button>
+      <div id="suggestContent"></div>
+    </div>
+  </div>
+
+  <!-- History Drawer -->
+  <div class="history-backdrop" id="historyBackdrop" onclick="closeHistory()"></div>
+  <div class="history-drawer" id="historyDrawer">
+    <div class="history-header">
+      <h3>📋 Lịch sử ăn tối</h3>
+      <div class="history-header-actions">
+        <button class="btn-icon" onclick="clearHistory()" title="Xóa lịch sử">🗑️</button>
+        <button class="btn-icon" onclick="closeHistory()" title="Đóng">✕</button>
+      </div>
+    </div>
+    <div class="history-body" id="historyBody"></div>
+    <div class="history-stats" id="historyStats"></div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0})">↑</button>
+
+  <script>
+    // ========== DATA ==========
+    const dishes = [
+      {
+        id: 1,
+        name: "Thịt Lợn Nạc Luộc & Su Su Chấm Muối Vừng",
+        nameEn: "Boiled lean pork & chayote with sesame salt",
+        emoji: "🐷",
+        category: "home",
+        calories: 350,
+        protein: 31.8, carb: 33.5, fat: 9.6,
+        ingredients: [
+          "100g thịt thăn lợn (pork loin)",
+          "200g su su Tam Đảo",
+          "10g muối vừng (lạc rang + vừng + muối)",
+          "100g cơm gạo lứt (1 lưng bát)"
+        ],
+        preparation: "Luộc thịt thăn chín tới với hành tím đập dập, thái miếng mỏng. Su su gọt vỏ, cắt khúc luộc chín. Nước luộc su su dùng làm canh, vắt chanh.",
+        benefits: ["Duy trì cơ bắp", "Giảm phù nề", "Kiểm soát đường huyết", "Đơn giản, dễ nấu"],
+        addresses: [],
+        highlight: "Món quốc dân miền Bắc, đơn giản mà hiệu quả"
+      },
+      {
+        id: 2,
+        name: "Cá Quả Hấp Gừng & Nộm Dưa Chuột",
+        nameEn: "Steamed snakehead fish with ginger & cucumber salad",
+        emoji: "🐟",
+        category: "home",
+        calories: 195,
+        protein: 28.5, carb: 11.0, fat: 3.7,
+        ingredients: [
+          "150g cá quả (cá lóc) tươi",
+          "Gừng, sả, thì là (dill), bia",
+          "200g dưa chuột + giấm gạo, tỏi",
+          "Xà lách, rau mùi, kinh giới"
+        ],
+        preparation: "Khía cạnh mình cá, ướp gừng sả thì là bia. Hấp cách thủy 15-20 phút. Dưa chuột thái lát trộn giấm gạo, tỏi, ớt.",
+        benefits: ["Chống viêm (albumin + omega-3)", "Cực thấp calo – Cutting", "Hỗ trợ tiêu hóa", "Phục hồi sau tập"],
+        addresses: [],
+        highlight: "Chỉ 195 kcal – Món cắt nét tốt nhất"
+      },
+      {
+        id: 3,
+        name: "Canh Mướp Đắng Nhồi Thịt Nạc",
+        nameEn: "Stuffed bitter melon soup",
+        emoji: "🥒",
+        category: "home",
+        calories: 154,
+        protein: 17.5, carb: 8.0, fat: 6.4,
+        ingredients: [
+          "200g mướp đắng (2 quả)",
+          "80g thịt nạc vai xay nhuyễn",
+          "20g mộc nhĩ + nấm hương băm",
+          "Nước dùng xương gà / tôm khô"
+        ],
+        preparation: "Bỏ ruột mướp, nhồi nhân thịt + mộc nhĩ + nấm hương. Nấu trong nước dùng thanh cho mềm.",
+        benefits: ["Hạ đường huyết (Charantin)", "Giảm cholesterol xấu (LDL)", "Thải độc gan", "Ngăn hấp thụ glucose"],
+        addresses: [],
+        highlight: "Chỉ 154 kcal – Thấp nhất danh sách"
+      },
+      {
+        id: 4,
+        name: "Ức Gà Xào Nấm Hương & Cải Chíp",
+        nameEn: "Chicken breast stir-fry with shiitake & bok choy",
+        emoji: "🍗",
+        category: "home",
+        calories: 251,
+        protein: 35.5, carb: 7.4, fat: 9.2,
+        ingredients: [
+          "150g ức gà không da",
+          "50g nấm hương tươi/khô",
+          "200g cải chíp (bok choy)",
+          "5g dầu oliu (dạng xịt)"
+        ],
+        preparation: "Ức gà lọc bỏ da mỡ, ướp nước mắm + bột sắn dây. Xào nhanh trên chảo chống dính với dầu oliu tối thiểu, cho nấm, cuối cùng cải chíp.",
+        benefits: ["Protein cực cao (35.5g)", "Tăng cường miễn dịch (Lentinan)", "Vitamin K, C, A", "Tăng cơ giảm mỡ"],
+        addresses: [],
+        highlight: "Vua protein – 35.5g đạm, chỉ 251 kcal"
+      },
+      {
+        id: 5,
+        name: "Đậu Phụ Làng Mơ & Rau Muống Đánh Sấu",
+        nameEn: "Tofu & morning glory with dracontomelon broth",
+        emoji: "🧆",
+        category: "home",
+        calories: 227,
+        protein: 22.0, carb: 16.0, fat: 9.6,
+        ingredients: [
+          "200g đậu phụ tươi (2 bìa, đậu Mơ)",
+          "300g rau muống nước",
+          "2 quả sấu (hoặc chanh)",
+          "Mắm tôm / nước mắm tỏi ớt"
+        ],
+        preparation: "Đậu phụ luộc nóng, chấm mắm tôm pha chanh. Rau muống luộc chín tới, nước luộc dầm sấu làm canh.",
+        benefits: ["Cân bằng nội tiết (Isoflavone)", "Nhuận tràng (cellulose)", "Thanh nhiệt giải độc", "Thuần chay, giá rẻ"],
+        addresses: [],
+        highlight: "100% thực vật – Thanh đạm nhất"
+      },
+      {
+        id: 6,
+        name: "Canh Bầu Tôm Đồng & Trứng Hấp Nấm",
+        nameEn: "Gourd soup with shrimp & steamed egg mushroom",
+        emoji: "🦐",
+        category: "home",
+        calories: 250,
+        protein: 24.3, carb: 11.0, fat: 10.8,
+        ingredients: [
+          "300g bầu sao gọt vỏ",
+          "50g tôm đồng bóc vỏ",
+          "2 quả trứng gà",
+          "20g nấm hương + mộc nhĩ"
+        ],
+        preparation: "Tôm giã nhỏ, lọc nước cốt nấu canh bầu. Trứng đánh tan với nấm hương, mộc nhĩ, hành tây, hấp cách thủy.",
+        benefits: ["Hydrat hóa (bầu >90% nước)", "Đủ axit amin thiết yếu", "Giàu canxi (tôm đồng)", "Nhẹ bụng, dễ ngủ"],
+        addresses: [],
+        highlight: "Nhẹ bụng nhất – Bù nước tuyệt vời"
+      },
+      {
+        id: 7,
+        name: "Salad Ức Gà Xé Phay & Khoai Lang",
+        nameEn: "Shredded chicken salad & sweet potato",
+        emoji: "🥗",
+        category: "home",
+        calories: 270,
+        protein: 26.0, carb: 36.0, fat: 1.9,
+        ingredients: [
+          "150g khoai lang mật / khoai lang tím",
+          "100g ức gà luộc xé sợi",
+          "Hành tây, rau răm, giá đỗ, cà rốt",
+          "Sốt: nước mắm, chanh, tỏi, ớt"
+        ],
+        preparation: "Khoai lang luộc chín, để nguội. Ức gà luộc xé phay. Trộn rau củ với sốt nước mắm chanh tỏi. Không dùng mayonnaise.",
+        benefits: ["No lâu (tinh bột kháng)", "Chỉ 1.9g fat", "Ấm bụng (rau răm)", "Chuẩn thực đơn Gym"],
+        addresses: [],
+        highlight: "Chỉ 1.9g fat – Thấp béo nhất"
+      },
+      {
+        id: 8,
+        name: "Cơm Rang Gạo Lứt Dưa Bò (Healthy)",
+        nameEn: "Healthy brown rice fried rice with beef & pickles",
+        emoji: "🍚",
+        category: "home",
+        calories: 335,
+        protein: 24.6, carb: 27.0, fat: 13.4,
+        ingredients: [
+          "100g cơm gạo lứt (để nguội/qua đêm)",
+          "80g thịt bò thăn thái mỏng",
+          "100g dưa cải bẹ muối chua",
+          "Tỏi, tiêu, dầu oliu xịt"
+        ],
+        preparation: "Chảo chống dính, xịt dầu mỏng. Xào săn bò, đem ra. Xào dưa + cà chua cho mềm. Cho cơm đảo đều. Hạn chế tối đa dầu.",
+        benefits: ["Probiotics (Lactobacillus)", "Giàu sắt & B12", "Resistant starch", "Ngon miệng, đổi vị"],
+        addresses: [],
+        highlight: "Biến tấu healthy từ món phố cổ"
+      },
+      {
+        id: 9,
+        name: "Nem Cuốn Tôm Thịt & Bún Gạo Lứt",
+        nameEn: "Fresh spring rolls with shrimp & pork",
+        emoji: "🌯",
+        category: "home",
+        calories: 260,
+        protein: 25.0, carb: 30.0, fat: 3.0,
+        ingredients: [
+          "5 bánh tráng (bánh đa nem)",
+          "Tôm hấp + thịt nạc luộc thái chỉ",
+          "Trứng tráng mỏng thái sợi",
+          "Xà lách, húng láng, dứa, dưa chuột"
+        ],
+        preparation: "Nhúng bánh tráng, xếp nhân gồm tôm, thịt, trứng, rau. Cuốn chặt tay. Ăn kèm nước mắm pha.",
+        benefits: ["Kiểm soát khẩu phần (ăn chậm)", "Vitamin A, C, E, K", "Chỉ 3g fat", "Vui vẻ quây quần"],
+        addresses: [],
+        highlight: "Quây quần gia đình – Tự cuốn tự ăn"
+      },
+      {
+        id: 10,
+        name: "Bún Thang",
+        nameEn: "Hanoi traditional rice noodle soup",
+        emoji: "🍜",
+        category: "out",
+        calories: 380,
+        protein: 20, carb: 40, fat: 10,
+        ingredients: [
+          "Bún rối sợi nhỏ",
+          "Gà xé, giò lụa, trứng tráng, tôm bông",
+          "Củ cải khô (ca la thầu), nấm hương",
+          "Nước dùng xương gà & tôm he"
+        ],
+        preparation: "Gọi bát 'ít bún, nhiều cái' để giảm tinh bột. Nước dùng ninh từ xương gà + tôm he, rất trong và thanh.",
+        benefits: ["Dễ tiêu hóa", "Đầy đủ nhóm chất", "Hương vị tinh tế Tràng An", "Thư giãn tinh thần"],
+        addresses: ["Bún Thang Bà Đức — 48 Cầu Gỗ, Hoàn Kiếm", "Bún Thang — 11 Hàng Hòm"],
+        highlight: "Cân bằng nhất trong nhóm ăn ngoài"
+      },
+      {
+        id: 11,
+        name: "Phở Cuốn Ngũ Xã",
+        nameEn: "Rolled phở with stir-fried beef",
+        emoji: "🥟",
+        category: "out",
+        calories: 350,
+        protein: 22, carb: 35, fat: 10,
+        ingredients: [
+          "Bánh phở mảng lớn",
+          "Thịt bò xào tỏi",
+          "Xà lách, rau mùi",
+          "Nước mắm chua ngọt đu đủ"
+        ],
+        preparation: "Mỗi chiếc ~50-60 kcal, ăn 5-6 chiếc. Yêu cầu quán xào bò ít dầu. Ăn kèm nhiều rau sống.",
+        benefits: ["Đạm/tinh bột cân đối", "Thanh mát", "Thay đổi khẩu vị", "Dễ kiểm soát phần ăn"],
+        addresses: ["Phở cuốn Hương Mai — 25 Ngũ Xã", "Phở cuốn Chinh Thắng — 7 Mạc Đĩnh Chi"],
+        highlight: "Biến tấu thanh mát của Phở Hà Nội"
+      },
+      {
+        id: 12,
+        name: "So Cuốn — Gỏi Cuốn Hiện Đại",
+        nameEn: "Modern fresh rolls — multiple fillings",
+        emoji: "🥬",
+        category: "out",
+        calories: 350,
+        protein: 22, carb: 30, fat: 8,
+        ingredients: [
+          "Nhân đa dạng: cá hồi, tôm, gà nướng",
+          "Lượng rau rất lớn trong mỗi cuốn",
+          "Vỏ bánh tráng lứt / bánh phở",
+          "Nước chấm tương đen / mắm chua ngọt"
+        ],
+        preparation: "Chọn set cuốn Cá Hồi hoặc Tôm để tối ưu Omega-3 và Protein. Uống kèm sữa hạt thay nước ngọt.",
+        benefits: ["Fresh & giàu vitamin sống", "Omega-3 (set cá hồi)", "Không gây đầy bụng", "Đa dạng lựa chọn"],
+        addresses: ["So Cuốn — 24D Trần Hưng Đạo, Hoàn Kiếm"],
+        highlight: "Lượng rau cực nhiều – Fresh nhất"
+      },
+      {
+        id: 13,
+        name: "Cơm Gạo Lứt & Salad (Midori Set)",
+        nameEn: "Macrobiotic brown rice set meal",
+        emoji: "🍱",
+        category: "out",
+        calories: 450,
+        protein: 28, carb: 50, fat: 12,
+        ingredients: [
+          "Gạo lứt + đạm (gà/cá thu/cá hồi)",
+          "Salad tươi / canh rong biển",
+          "Kimchi / dưa muối",
+          "Ít gia vị công nghiệp"
+        ],
+        preparation: "Thử 'Cơm cuộn gạo lứt' hoặc set cơm cá thu/cá hồi. Tỷ lệ chuẩn: 1 tinh bột + 1 đạm + 2 rau.",
+        benefits: ["Năng lượng bền vững", "Detox bằng thực phẩm sạch", "Nguyên cám, whole grain", "Dinh dưỡng chuẩn chỉnh"],
+        addresses: ["Midori House — 80A Láng Hạ", "Midori House — 30 Hàng Bông"],
+        highlight: "Macrobiotic chuẩn – Dinh dưỡng cao"
+      },
+      {
+        id: 14,
+        name: "Lẩu Chay / Món Chay Vejo",
+        nameEn: "Vegetarian hotpot & dishes",
+        emoji: "🍲",
+        category: "out",
+        calories: 370,
+        protein: 18, carb: 40, fat: 8,
+        ingredients: [
+          "Nấm các loại (không dùng giả mặn)",
+          "Các loại hạt",
+          "Salad nộm hoa chuối",
+          "Lẩu nấm / Pad Thái chay"
+        ],
+        preparation: "Gọi Salad nộm hoa chuối, Pad Thái chay ít dầu, hoặc Lẩu nấm. Ăn nhiều rau nấm, hạn chế mì. Tránh chiên xù.",
+        benefits: ["Giảm cholesterol", "Giảm tải gan thận", "Giấc ngủ sâu hơn", "Thanh lọc cơ thể"],
+        addresses: ["Vejo — The Vege Journey — 46B Bát Đàn"],
+        highlight: "Ăn chay 1 bữa/tuần – Detox nhẹ nhàng"
+      },
+      {
+        id: 15,
+        name: "Poke Hà Nội — Fusion Lành Mạnh",
+        nameEn: "Hawaiian poke bowl — Vietnamized",
+        emoji: "🥑",
+        category: "out",
+        calories: 500,
+        protein: 30, carb: 45, fat: 18,
+        ingredients: [
+          "Base: gạo lứt + salad",
+          "Protein: cá hồi / cá ngừ / tôm",
+          "Topping: bơ, xoài, rong biển, đậu nành",
+          "Sốt Shoyu / Ponzu (ít calo)"
+        ],
+        preparation: "Chọn base 50% Salad + 50% Gạo lứt. Sốt Shoyu/Ponzu thay vì Spicy Mayo. Thêm avocado cho chất béo tốt.",
+        benefits: ["Omega-3 dồi dào", "Chống oxy hóa", "Tốt cho tim mạch & não", "Đẹp da"],
+        addresses: ["Poke Hanoi — 11B Hàng Khay (view Hồ Gươm)"],
+        highlight: "Omega-3 cao nhất – Đẹp da, khỏe tim"
+      }
+    ];
+
+    // ========== STATE ==========
+    const STORAGE_KEY = "healthyFoodHistory";
+
+    function getHistory() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+      catch { return []; }
+    }
+    function saveHistory(history) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+    }
+    function addToHistory(dishId) {
+      const history = getHistory();
+      const today = new Date().toISOString().split('T')[0];
+      // Remove today's entry if exists (replace)
+      const filtered = history.filter(h => h.date !== today);
+      filtered.unshift({ date: today, dishId });
+      saveHistory(filtered);
+    }
+
+    // ========== INIT ==========
+    document.addEventListener("DOMContentLoaded", () => {
+      setHeroDate();
+      generateParticles();
+      renderCards();
+      setupScrollObserver();
+      setupScrollTop();
+      initTheme();
+    });
+
+    function setHeroDate() {
+      const d = new Date();
+      const days = ['Chủ nhật', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
+      const months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+      document.getElementById('heroDate').textContent =
+        `${days[d.getDay()]}, ${d.getDate()}/${months[d.getMonth()]}/${d.getFullYear()}`;
+    }
+
+    function generateParticles() {
+      const container = document.getElementById('particles');
+      for (let i = 0; i < 20; i++) {
+        const span = document.createElement('span');
+        span.style.left = Math.random() * 100 + '%';
+        span.style.width = span.style.height = (4 + Math.random() * 6) + 'px';
+        span.style.animationDuration = (8 + Math.random() * 12) + 's';
+        span.style.animationDelay = Math.random() * 10 + 's';
+        container.appendChild(span);
+      }
+    }
+
+    // ========== RENDER CARDS ==========
+    function renderCards() {
+      const grid = document.getElementById('cardsGrid');
+      grid.innerHTML = '';
+      dishes.forEach((dish, i) => {
+        const total = dish.protein + dish.carb + dish.fat;
+        const pPct = ((dish.protein / total) * 100).toFixed(0);
+        const cPct = ((dish.carb / total) * 100).toFixed(0);
+        const fPct = ((dish.fat / total) * 100).toFixed(0);
+
+        const card = document.createElement('div');
+        card.className = `food-card ${dish.category === 'out' ? 'out' : ''}`;
+        card.dataset.category = dish.category;
+        card.dataset.id = dish.id;
+        card.style.animationDelay = (i * 0.06) + 's';
+        card.onclick = () => openDetail(dish.id);
+
+        card.innerHTML = `
+      <div class="card-header">
+        <div class="card-emoji">${dish.emoji}</div>
+        <div class="card-titles">
+          <h3>${dish.name}</h3>
+          <div class="card-name-en">${dish.nameEn}</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="tag ${dish.category === 'home' ? 'tag-home' : 'tag-out'}">${dish.category === 'home' ? '🏠 Tại nhà' : '🍽️ Ăn ngoài'}</span>
+          <span class="tag tag-cal">🔥 ${dish.calories} kcal</span>
+        </div>
+        <div class="card-macros">
+          <div class="macro-bar protein"><div class="macro-bar-fill" data-width="${pPct}"></div></div>
+          <div class="macro-bar carb"><div class="macro-bar-fill" data-width="${cPct}"></div></div>
+          <div class="macro-bar fat"><div class="macro-bar-fill" data-width="${fPct}"></div></div>
+        </div>
+        <div class="macro-labels">
+          <span><span class="macro-dot p"></span>P ${dish.protein}g</span>
+          <span><span class="macro-dot c"></span>C ${dish.carb}g</span>
+          <span><span class="macro-dot f"></span>F ${dish.fat}g</span>
+        </div>
+        <div class="card-highlight">${dish.highlight}</div>
+      </div>
+    `;
+        grid.appendChild(card);
+      });
+    }
+
+    // ========== INTERSECTION OBSERVER ==========
+    function setupScrollObserver() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            // Animate macro bars
+            entry.target.querySelectorAll('.macro-bar-fill').forEach(bar => {
+              bar.style.width = bar.dataset.width + '%';
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.food-card').forEach(card => observer.observe(card));
+    }
+
+    // ========== FILTER ==========
+    function filterCards(filter, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      document.querySelectorAll('.food-card').forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.classList.remove('hidden');
+          // Re-trigger animation
+          card.classList.remove('visible');
+          setTimeout(() => card.classList.add('visible'), 50);
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      // Also update carousel if active
+      if (currentView === 'carousel') {
+        carouselIndex = 0;
+        buildCarousel();
+      }
+    }
+
+    // ========== DETAIL MODAL ==========
+    function openDetail(id) {
+      const dish = dishes.find(d => d.id === id);
+      if (!dish) return;
+
+      const total = dish.protein + dish.carb + dish.fat;
+      const pPct = ((dish.protein / total) * 100).toFixed(1);
+      const cPct = ((dish.carb / total) * 100).toFixed(1);
+      const fPct = ((dish.fat / total) * 100).toFixed(1);
+
+      // Cal ring: max ~550 kcal
+      const calPct = Math.min(dish.calories / 550, 1);
+      const circumference = 339.292;
+      const offset = circumference * (1 - calPct);
+
+      const content = document.getElementById('modalContent');
+      content.innerHTML = `
+    <div class="modal-hero">
+      <span class="modal-emoji">${dish.emoji}</span>
+      <h2>${dish.name}</h2>
+      <div class="modal-name-en">${dish.nameEn}</div>
+      <div class="card-tags" style="justify-content:center">
+        <span class="tag ${dish.category === 'home' ? 'tag-home' : 'tag-out'}">${dish.category === 'home' ? '🏠 Tại nhà' : '🍽️ Ăn ngoài'}</span>
+      </div>
+      <div class="modal-cal-ring">
+        <svg viewBox="0 0 120 120">
+          <circle class="ring-bg" cx="60" cy="60" r="54"/>
+          <circle class="ring-fill" cx="60" cy="60" r="54" id="calRing" style="stroke-dashoffset: ${circumference}"/>
+        </svg>
+        <div class="modal-cal-center">
+          <span class="modal-cal-num" id="calNum">0</span>
+          <span class="modal-cal-label">kcal</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-macros-bar">
+      <div class="m-protein" style="width:0%" id="mProtein"></div>
+      <div class="m-carb" style="width:0%" id="mCarb"></div>
+      <div class="m-fat" style="width:0%" id="mFat"></div>
+    </div>
+    <div class="modal-macros-legend">
+      <span><span class="macro-dot p"></span>Protein ${dish.protein}g (${pPct}%)</span>
+      <span><span class="macro-dot c"></span>Carb ${dish.carb}g (${cPct}%)</span>
+      <span><span class="macro-dot f"></span>Fat ${dish.fat}g (${fPct}%)</span>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">🥘 Nguyên liệu</div>
+      <p>${dish.ingredients.map(i => '• ' + i).join('<br>')}</p>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">👨‍🍳 Chế biến</div>
+      <p>${dish.preparation}</p>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-section-title">💪 Tác dụng</div>
+      <div class="benefit-pills">
+        ${dish.benefits.map((b, i) => `<span class="benefit-pill" style="animation-delay:${i * 0.08}s">${b}</span>`).join('')}
+      </div>
+    </div>
+
+    ${dish.addresses.length ? `
+    <div class="modal-section">
+      <div class="modal-section-title">📍 Địa chỉ gợi ý</div>
+      ${dish.addresses.map(a => `<div class="address-item">${a}</div>`).join('')}
+    </div>` : ''}
+
+    <div class="modal-footer">
+      <button class="btn-choose" onclick="chooseDish(${dish.id})">
+        ✅ Chọn món này hôm nay
+      </button>
+    </div>
+  `;
+
+      openModal('detailModal');
+
+      // Animate after open
+      setTimeout(() => {
+        document.getElementById('calRing').style.strokeDashoffset = offset;
+        animateCount('calNum', 0, dish.calories, 800);
+        document.getElementById('mProtein').style.width = pPct + '%';
+        document.getElementById('mCarb').style.width = cPct + '%';
+        document.getElementById('mFat').style.width = fPct + '%';
+      }, 100);
+    }
+
+    function animateCount(elemId, start, end, duration) {
+      const el = document.getElementById(elemId);
+      if (!el) return;
+      const range = end - start;
+      const startTime = performance.now();
+      function update(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(start + range * eased);
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
+
+    // ========== CHOOSE DISH ==========
+    function chooseDish(id) {
+      addToHistory(id);
+      closeModal('detailModal');
+      closeModal('suggestModal');
+      showConfetti();
+      showToast(`✅ Đã lưu! Chúc bạn ngon miệng 🥢`);
+    }
+
+    // ========== SUGGESTION ENGINE ==========
+    function showSuggestion() {
+      const suggested = getSuggestion();
+      renderSuggestion(suggested.dish, suggested.explanation);
+      openModal('suggestModal');
+    }
+
+    function getSuggestion() {
+      const history = getHistory();
+      const today = new Date();
+      const dayOfWeek = today.getDay(); // 0=Sun
+
+      // Score each dish
+      const scores = dishes.map(dish => {
+        let score = 50; // base
+
+        // Recency penalty
+        const recentDays = 5;
+        history.slice(0, recentDays).forEach((h, i) => {
+          if (h.dishId === dish.id) {
+            score -= (recentDays - i) * 12; // More recent = bigger penalty
+          }
+        });
+
+        // Frequency balance: boost less-eaten dishes
+        const totalEaten = history.filter(h => h.dishId === dish.id).length;
+        const avgEaten = history.length / dishes.length;
+        if (totalEaten < avgEaten) score += 15;
+        if (totalEaten === 0) score += 10;
+
+        // Nutritional variety
+        const recentProtein = history.slice(0, 3).reduce((sum, h) => {
+          const d = dishes.find(x => x.id === h.dishId);
+          return sum + (d ? d.protein : 0);
+        }, 0);
+        if (recentProtein > 80 && dish.category === 'home' && dish.protein < 25) {
+          score += 10; // Suggest lighter if recent were high-protein
+        }
+
+        // Weekend bonus for fun/out dishes
+        const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+        if (isWeekend && dish.category === 'out') score += 8;
+        if (!isWeekend && dish.category === 'home' && dish.calories < 300) score += 5;
+
+        // Small random factor
+        score += Math.random() * 8;
+
+        return { dish, score };
+      });
+
+      scores.sort((a, b) => b.score - a.score);
+      const chosen = scores[0].dish;
+
+      // Build explanation
+      let explanation = buildExplanation(chosen, history, dayOfWeek);
+
+      return { dish: chosen, explanation };
+    }
+
+    function buildExplanation(dish, history, dayOfWeek) {
+      const parts = [];
+      const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+
+      // Recent meals context
+      const recent3 = history.slice(0, 3).map(h => dishes.find(d => d.id === h.dishId)).filter(Boolean);
+
+      if (recent3.length === 0) {
+        parts.push("Đây là lần đầu tiên bạn sử dụng! Mình gợi ý món này để bạn có một khởi đầu cân bằng và ngon miệng.");
+      } else {
+        const recentNames = recent3.map(d => d.name).join(', ');
+        parts.push(`Gần đây bạn đã ăn: ${recentNames}.`);
+
+        const recentProtein = recent3.reduce((s, d) => s + d.protein, 0) / recent3.length;
+        const recentCal = recent3.reduce((s, d) => s + d.calories, 0) / recent3.length;
+
+        if (recentProtein > 28) {
+          parts.push("Bạn đã nạp khá nhiều đạm trong vài ngày qua. Hôm nay nên thử món nhẹ nhàng hơn để cơ thể được cân bằng.");
+        } else if (recentProtein < 20) {
+          parts.push("Lượng đạm mấy ngày gần đây hơi thấp. Hôm nay mình gợi ý món giàu protein hơn nhé!");
+        }
+
+        if (recentCal > 350) {
+          parts.push("Calo trung bình mấy ngày qua khá cao, hôm nay ăn nhẹ hơn một chút sẽ tốt cho việc giữ dáng.");
+        }
+      }
+
+      // Dish-specific explanation
+      parts.push(`\n\n🍽️ **${dish.name}** có ${dish.calories} kcal với ${dish.protein}g protein, ${dish.carb}g carb và ${dish.fat}g fat.`);
+      parts.push(`Điểm nổi bật: ${dish.highlight}.`);
+
+      if (isWeekend && dish.category === 'out') {
+        parts.push("Cuối tuần rồi, hãy thưởng thức bữa tối ở ngoài để thay đổi không khí nhé! 🌆");
+      } else if (!isWeekend && dish.category === 'home') {
+        parts.push("Ngày thường nấu ở nhà sẽ giúp bạn kiểm soát dinh dưỡng tốt hơn và tiết kiệm hơn. 🏠");
+      }
+
+      return parts.join(' ');
+    }
+
+    function renderSuggestion(dish, explanation) {
+      const content = document.getElementById('suggestContent');
+      content.innerHTML = `
+    <div class="suggest-content">
+      <div class="hero-emoji" style="font-size:48px;margin-bottom:8px">✨</div>
+      <div class="suggest-title">Gợi ý cho hôm nay</div>
+      <div class="suggest-card-mini" onclick="closeModal('suggestModal');openDetail(${dish.id})" style="cursor:pointer">
+        <div class="card-emoji">${dish.emoji}</div>
+        <div>
+          <h3>${dish.name}</h3>
+          <p>${dish.nameEn} · 🔥 ${dish.calories} kcal</p>
+        </div>
+      </div>
+      <div class="suggest-explanation">
+        ${formatExplanation(explanation)}
+      </div>
+      <div class="suggest-actions">
+        <button class="btn btn-another" onclick="rerollSuggestion()">🔄 Gợi ý khác</button>
+        <button class="btn btn-primary" onclick="chooseDish(${dish.id})" style="border-radius:14px">✅ Chọn món này</button>
+      </div>
+    </div>
+  `;
+    }
+
+    function formatExplanation(text) {
+      return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+    }
+
+    function rerollSuggestion() {
+      // Add a bit more randomness on reroll
+      const suggested = getSuggestion();
+      renderSuggestion(suggested.dish, suggested.explanation);
+    }
+
+    // ========== HISTORY ==========
+    function openHistory() {
+      renderHistory();
+      document.getElementById('historyDrawer').classList.add('open');
+      document.getElementById('historyBackdrop').classList.add('open');
+    }
+
+    function closeHistory() {
+      document.getElementById('historyDrawer').classList.remove('open');
+      document.getElementById('historyBackdrop').classList.remove('open');
+    }
+
+    function renderHistory() {
+      const history = getHistory();
+      const body = document.getElementById('historyBody');
+      const stats = document.getElementById('historyStats');
+
+      if (history.length === 0) {
+        body.innerHTML = `
+      <div class="history-empty">
+        <span>🍃</span>
+        <p>Chưa có lịch sử nào.<br>Hãy chọn món ăn đầu tiên!</p>
+      </div>
+    `;
+        stats.innerHTML = '';
+        return;
+      }
+
+      const months = ['Th1', 'Th2', 'Th3', 'Th4', 'Th5', 'Th6', 'Th7', 'Th8', 'Th9', 'Th10', 'Th11', 'Th12'];
+
+      body.innerHTML = history.map((h, i) => {
+        const dish = dishes.find(d => d.id === h.dishId);
+        if (!dish) return '';
+        const d = new Date(h.date);
+        return `
+      <div class="history-item" style="animation-delay:${i * 0.05}s">
+        <div class="history-date">
+          <div class="day">${d.getDate()}</div>
+          <div class="month">${months[d.getMonth()]}</div>
+        </div>
+        <div class="history-info">
+          <h4>${dish.name}</h4>
+          <div class="h-cal">🔥 ${dish.calories} kcal · ${dish.category === 'home' ? '🏠' : '🍽️'}</div>
+        </div>
+        <div class="history-emoji">${dish.emoji}</div>
+      </div>
+    `;
+      }).join('');
+
+      // Stats
+      const totalMeals = history.length;
+      const avgCal = Math.round(history.reduce((s, h) => {
+        const d = dishes.find(x => x.id === h.dishId);
+        return s + (d ? d.calories : 0);
+      }, 0) / totalMeals);
+      const uniqueDishes = new Set(history.map(h => h.dishId)).size;
+
+      stats.innerHTML = `
+    <div class="stat-box">
+      <div class="stat-num">${totalMeals}</div>
+      <div class="stat-label">Bữa tối</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">${avgCal}</div>
+      <div class="stat-label">TB Calo</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">${uniqueDishes}/15</div>
+      <div class="stat-label">Đã thử</div>
+    </div>
+  `;
+    }
+
+    function clearHistory() {
+      if (confirm('Bạn có chắc muốn xóa toàn bộ lịch sử?')) {
+        saveHistory([]);
+        renderHistory();
+        showToast('🗑️ Đã xóa lịch sử');
+      }
+    }
+
+    // ========== MODAL HELPERS ==========
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOutside(event, id) {
+      if (event.target === event.currentTarget) closeModal(id);
+    }
+
+    // ========== THEME ==========
+    function initTheme() {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.querySelector('.theme-toggle').textContent = '☀️';
+      }
+    }
+
+    function toggleTheme() {
+      const btn = document.querySelector('.theme-toggle');
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        btn.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        btn.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    // ========== SEAL MASCOT INTERACTION ==========
+    const sealPhrases = [
+      "Ăn healthy đi nào! 🥗",
+      "Hải Cẩu tin bạn sẽ khỏe mạnh! 💪",
+      "Hôm nay ăn gì nhỉ? 🤔",
+      "Nhớ uống đủ nước nha~ 💧",
+      "Bạn thật tuyệt vời! ✨",
+      "Ăn vừa đủ, ngủ vừa say 😴",
+      "Healthy is happy! 🦭",
+      "Cố lên, giữ dáng thôi! 🔥",
+      "Yêu bản thân từ bữa ăn 💚",
+      "Hải Cẩu ôm bạn! 🤗",
+      "Mỗi bữa ăn là một lựa chọn yêu thương 🌸",
+      "Cơ thể khỏe, tâm hồn vui! 🌈",
+      "Ăn xanh sống khỏe, đẹp từ bên trong 🌿",
+      "Hải Cẩu tự hào vì bạn đã chọn healthy! 🏆",
+      "Đừng quên ăn rau nhé~ 🥦",
+      "Bụng no mà vẫn giữ dáng, tài ghê! 😎",
+      "Một ngày mới, một bữa ăn lành mạnh mới 🌅",
+      "Nấu ăn tại nhà = yêu bản thân hơn 🏠❤️",
+      "Protein đủ, cơ bắp ơi lên nào! 💪🦭",
+      "Vitamin từ rau củ là skincare tốt nhất 🧴✨",
+      "Ăn chậm nhai kỹ, no lâu mà khỏe! 🐢",
+      "Hải Cẩu nhắc: đừng bỏ bữa nha~ 🔔",
+      "Nước lọc + bữa ăn healthy = combo hoàn hảo 💦",
+      "Bạn đang trên con đường đúng rồi đó! 🛤️",
+      "Hải Cẩu vỗ tay cho sự kiên trì của bạn 👏",
+      "Ăn ngon mà không tội lỗi, sướng chưa! 🎉",
+      "Hôm nay cũng là một ngày tuyệt vời để khỏe 🌞",
+      "Chăm sóc mình hôm nay, tương lai cảm ơn 🔮",
+      "Hải Cẩu thích bạn lắm nha! 🦭💕",
+      "Calo thấp, hạnh phúc cao! 📈"
+    ];
+    document.getElementById('sealMascot').addEventListener('click', () => {
+      const msg = sealPhrases[Math.floor(Math.random() * sealPhrases.length)];
+      showToast(`🦭 ${msg}`);
+    });
+
+    // ========== TOAST ==========
+    function showToast(message) {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = message;
+      container.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+    }
+
+    // ========== CONFETTI ==========
+    function showConfetti() {
+      const colors = ['#52B788', '#F4A261', '#E76F51', '#3b82f6', '#ef4444', '#fbbf24', '#a78bfa'];
+      for (let i = 0; i < 40; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        piece.style.left = Math.random() * 100 + 'vw';
+        piece.style.top = '-10px';
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        piece.style.width = (6 + Math.random() * 8) + 'px';
+        piece.style.height = (6 + Math.random() * 8) + 'px';
+        piece.style.animationDuration = (1 + Math.random() * 1.5) + 's';
+        piece.style.animationDelay = (Math.random() * 0.5) + 's';
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 3000);
+      }
+    }
+
+    // ========== SCROLL TOP ==========
+    function setupScrollTop() {
+      const btn = document.getElementById('scrollTop');
+      window.addEventListener('scroll', () => {
+        btn.classList.toggle('visible', window.scrollY > 400);
+      });
+    }
+
+    // ========== VIEW SWITCHER ==========
+    let currentView = 'grid';
+    let carouselIndex = 0;
+    let carouselFilteredDishes = [...dishes];
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function switchView(view) {
+      currentView = view;
+      document.querySelectorAll('.view-toggle-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector(`.view-toggle-btn[data-view="${view}"]`).classList.add('active');
+
+      const gridView = document.getElementById('gridView');
+      const carouselView = document.getElementById('carouselView');
+
+      if (view === 'grid') {
+        gridView.classList.remove('carousel-hidden');
+        carouselView.classList.remove('active');
+        // Re-trigger grid animations
+        document.querySelectorAll('.food-card').forEach(c => {
+          if (!c.classList.contains('hidden')) {
+            c.classList.remove('visible');
+            setTimeout(() => c.classList.add('visible'), 50);
+          }
+        });
+      } else {
+        gridView.classList.add('carousel-hidden');
+        carouselView.classList.add('active');
+        buildCarousel();
+      }
+    }
+
+    function buildCarousel() {
+      const currentFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
+      carouselFilteredDishes = currentFilter === 'all'
+        ? [...dishes]
+        : dishes.filter(d => d.category === currentFilter);
+
+      if (carouselIndex >= carouselFilteredDishes.length) carouselIndex = 0;
+
+      renderCarouselCards();
+      renderCarouselDots();
+      updateCarouselCounter();
+      setupCarouselTouch();
+    }
+
+    function renderCarouselCards() {
+      const track = document.getElementById('carouselTrack');
+      track.innerHTML = '';
+
+      carouselFilteredDishes.forEach((dish, i) => {
+        const total = dish.protein + dish.carb + dish.fat;
+        const pPct = ((dish.protein / total) * 100).toFixed(0);
+        const cPct = ((dish.carb / total) * 100).toFixed(0);
+        const fPct = ((dish.fat / total) * 100).toFixed(0);
+
+        const card = document.createElement('div');
+        card.className = `carousel-card ${dish.category === 'out' ? 'out' : ''}`;
+        card.dataset.index = i;
+        card.onclick = () => {
+          const pos = getCarouselPos(i);
+          if (pos === 0) { openDetail(dish.id); }
+          else if (pos === -1 || pos === -2) { carouselPrev(); }
+          else if (pos === 1 || pos === 2) { carouselNext(); }
+        };
+
+        card.innerHTML = `
+          <div class="card-header">
+            <div class="card-emoji">${dish.emoji}</div>
+            <div class="card-titles">
+              <h3>${dish.name}</h3>
+              <div class="card-name-en">${dish.nameEn}</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag ${dish.category === 'home' ? 'tag-home' : 'tag-out'}">${dish.category === 'home' ? '🏠 Tại nhà' : '🍽️ Ăn ngoài'}</span>
+              <span class="tag tag-cal">🔥 ${dish.calories} kcal</span>
+            </div>
+            <div class="card-macros">
+              <div class="macro-bar protein"><div class="macro-bar-fill" style="width:${pPct}%"></div></div>
+              <div class="macro-bar carb"><div class="macro-bar-fill" style="width:${cPct}%"></div></div>
+              <div class="macro-bar fat"><div class="macro-bar-fill" style="width:${fPct}%"></div></div>
+            </div>
+            <div class="macro-labels">
+              <span><span class="macro-dot p"></span>P ${dish.protein}g</span>
+              <span><span class="macro-dot c"></span>C ${dish.carb}g</span>
+              <span><span class="macro-dot f"></span>F ${dish.fat}g</span>
+            </div>
+            <div class="card-highlight">${dish.highlight}</div>
+          </div>
+        `;
+        track.appendChild(card);
+      });
+
+      positionCarouselCards();
+    }
+
+    function getCarouselPos(i) {
+      const len = carouselFilteredDishes.length;
+      let diff = i - carouselIndex;
+      // Wrap around for circular navigation
+      if (diff > len / 2) diff -= len;
+      if (diff < -len / 2) diff += len;
+      return diff;
+    }
+
+    function positionCarouselCards() {
+      const cards = document.querySelectorAll('.carousel-card');
+      cards.forEach((card) => {
+        const i = parseInt(card.dataset.index);
+        const diff = getCarouselPos(i);
+
+        if (diff >= -2 && diff <= 2) {
+          card.dataset.pos = diff.toString();
+        } else {
+          card.dataset.pos = 'hidden';
+        }
+      });
+    }
+
+    function renderCarouselDots() {
+      const dots = document.getElementById('carouselDots');
+      dots.innerHTML = carouselFilteredDishes.map((_, i) =>
+        `<button class="carousel-dot ${i === carouselIndex ? 'active' : ''}" onclick="carouselGoTo(${i})" aria-label="Go to dish ${i + 1}"></button>`
+      ).join('');
+    }
+
+    function updateCarouselCounter() {
+      const counter = document.getElementById('carouselCounter');
+      counter.innerHTML = `<span class="current">${carouselIndex + 1}</span> / ${carouselFilteredDishes.length}`;
+    }
+
+    function carouselGoTo(index) {
+      carouselIndex = index;
+      positionCarouselCards();
+      renderCarouselDots();
+      updateCarouselCounter();
+    }
+
+    function carouselNext() {
+      carouselIndex = (carouselIndex + 1) % carouselFilteredDishes.length;
+      positionCarouselCards();
+      renderCarouselDots();
+      updateCarouselCounter();
+    }
+
+    function carouselPrev() {
+      carouselIndex = (carouselIndex - 1 + carouselFilteredDishes.length) % carouselFilteredDishes.length;
+      positionCarouselCards();
+      renderCarouselDots();
+      updateCarouselCounter();
+    }
+
+    function setupCarouselTouch() {
+      const track = document.getElementById('carouselTrack');
+      track.removeEventListener('touchstart', onTouchStart);
+      track.removeEventListener('touchend', onTouchEnd);
+      track.addEventListener('touchstart', onTouchStart, { passive: true });
+      track.addEventListener('touchend', onTouchEnd, { passive: true });
+    }
+
+    function onTouchStart(e) { touchStartX = e.changedTouches[0].screenX; }
+    function onTouchEnd(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) carouselNext();
+        else carouselPrev();
+      }
+    }
+
+    // Keyboard navigation for carousel
+    document.addEventListener('keydown', (e) => {
+      if (currentView !== 'carousel') return;
+      if (document.querySelector('.modal-overlay.active')) return;
+      if (e.key === 'ArrowLeft') carouselPrev();
+      else if (e.key === 'ArrowRight') carouselNext();
+      else if (e.key === 'Enter') {
+        const dish = carouselFilteredDishes[carouselIndex];
+        if (dish) openDetail(dish.id);
+      }
+    });
+
+    // ========== RIPPLE EFFECT ==========
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.btn');
+      if (!btn) return;
+      const ripple = document.createElement('span');
+      ripple.className = 'btn-ripple';
+      const rect = btn.getBoundingClientRect();
+      ripple.style.left = (e.clientX - rect.left) + 'px';
+      ripple.style.top = (e.clientY - rect.top) + 'px';
+      btn.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+    });
+  </script>
+</body>
+
+</html>
