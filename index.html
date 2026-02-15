@@ -634,9 +634,21 @@
       width: 100%;
       max-height: 90vh;
       overflow-y: auto;
+      overflow-x: hidden;
       transform: translateY(100%);
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
+    }
+
+    /* Wrapper for the detail modal so nav arrows sit outside the scrollable area */
+    .modal-with-nav {
+      position: relative;
+      max-width: 640px;
+      width: 100%;
+      pointer-events: none;
+    }
+    .modal-with-nav > * {
+      pointer-events: auto;
     }
 
     .modal-overlay.active .modal {
@@ -674,7 +686,7 @@
       background: var(--border);
     }
 
-    /* Detail nav arrows */
+    /* Detail nav arrows — positioned relative to .modal-with-nav wrapper */
     .modal-nav {
       position: absolute;
       top: 50%;
@@ -683,41 +695,53 @@
       height: 44px;
       border-radius: 50%;
       border: none;
-      background: var(--bg);
+      background: var(--bg-card);
       color: var(--text-secondary);
-      font-size: 20px;
+      font-size: 22px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 10;
-      transition: all var(--transition);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-      opacity: 0.85;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+      opacity: 0.9;
     }
+
     .modal-nav:hover {
       background: var(--primary);
       color: #fff;
       opacity: 1;
       transform: translateY(-50%) scale(1.1);
     }
+
     .modal-nav:active {
       transform: translateY(-50%) scale(0.95);
     }
+
     .modal-nav-prev {
-      left: -22px;
+      left: -56px;
     }
+
     .modal-nav-next {
-      right: -22px;
+      right: -56px;
     }
-    @media (max-width: 700px) {
-      .modal-nav-prev { left: 6px; }
-      .modal-nav-next { right: 6px; }
+
+    @media (max-width: 780px) {
+      .modal-nav-prev {
+        left: 6px;
+      }
+
+      .modal-nav-next {
+        right: 6px;
+      }
+
       .modal-nav {
         width: 36px;
         height: 36px;
         font-size: 16px;
         opacity: 0.7;
+        background: var(--bg-card);
       }
     }
 
@@ -732,23 +756,30 @@
 
     /* Slide transition for modal content */
     #modalContent {
-      transition: opacity 0.25s ease, transform 0.25s ease;
+      transition: opacity 0.22s ease, transform 0.22s ease;
     }
-    #modalContent.slide-out-left {
+
+    #modalContent.slide-exit {
       opacity: 0;
-      transform: translateX(-60px);
+      pointer-events: none;
     }
-    #modalContent.slide-out-right {
-      opacity: 0;
-      transform: translateX(60px);
+    #modalContent.slide-exit-left {
+      transform: translateX(-50px);
     }
-    #modalContent.slide-in-left {
-      opacity: 0;
-      transform: translateX(60px);
+    #modalContent.slide-exit-right {
+      transform: translateX(50px);
     }
-    #modalContent.slide-in-right {
+
+    #modalContent.slide-enter {
       opacity: 0;
-      transform: translateX(-60px);
+      pointer-events: none;
+      transition: none;
+    }
+    #modalContent.slide-enter-left {
+      transform: translateX(-50px);
+    }
+    #modalContent.slide-enter-right {
+      transform: translateX(50px);
     }
 
     .modal-hero {
@@ -1825,12 +1856,14 @@
 
   <!-- Detail Modal -->
   <div class="modal-overlay" id="detailModal" onclick="closeModalOutside(event, 'detailModal')">
-    <div class="modal">
-      <div class="modal-handle"></div>
-      <button class="modal-close" onclick="closeModal('detailModal')">✕</button>
+    <div class="modal-with-nav">
       <button class="modal-nav modal-nav-prev" id="detailPrev" onclick="navigateDetail(-1)" title="Món trước">‹</button>
       <button class="modal-nav modal-nav-next" id="detailNext" onclick="navigateDetail(1)" title="Món sau">›</button>
-      <div id="modalContent"></div>
+      <div class="modal">
+        <div class="modal-handle"></div>
+        <button class="modal-close" onclick="closeModal('detailModal')">✕</button>
+        <div id="modalContent"></div>
+      </div>
     </div>
   </div>
 
@@ -2311,21 +2344,32 @@
       const nextId = ids[nextIdx];
 
       const content = document.getElementById('modalContent');
-      const slideOut = direction > 0 ? 'slide-out-left' : 'slide-out-right';
-      const slideIn = direction > 0 ? 'slide-in-left' : 'slide-in-right';
+      // Swipe left (direction=1 → next): everything moves left
+      // Swipe right (direction=-1 → prev): everything moves right
+      const exitDir = direction > 0 ? 'slide-exit-left' : 'slide-exit-right';
+      const enterDir = direction > 0 ? 'slide-enter-right' : 'slide-enter-left';
 
-      content.classList.add(slideOut);
+      // Phase 1: slide out current content
+      content.classList.add('slide-exit', exitDir);
+
       setTimeout(() => {
-        content.classList.remove(slideOut);
-        content.classList.add(slideIn);
+        // Phase 2: swap content, position new content on the incoming side (no transition)
+        content.classList.remove('slide-exit', exitDir);
+        content.classList.add('slide-enter', enterDir);
         renderDetailContent(nextId);
-        // Force reflow then remove slide-in
+        // Scroll modal back to top for new dish
+        content.closest('.modal').scrollTop = 0;
+
+        // Phase 3: force reflow, then animate into place
+        // eslint-disable-next-line no-unused-expressions
+        content.offsetHeight;
+        content.classList.remove('slide-enter');
+        // Re-enable transition and let it animate to translateX(0), opacity 1
         requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            content.classList.remove(slideIn);
-          });
+          content.style.transition = '';
+          content.classList.remove(enterDir);
         });
-      }, 200);
+      }, 220);
     }
 
     function initDetailSwipe() {
@@ -2336,12 +2380,16 @@
         detailSwiping = true;
       }, { passive: true });
 
+      modal.addEventListener('touchmove', (e) => {
+        // Prevent any horizontal scroll on the modal during swipe
+      }, { passive: true });
+
       modal.addEventListener('touchend', (e) => {
         if (!detailSwiping) return;
         detailSwiping = false;
         const dx = e.changedTouches[0].clientX - detailSwipeStartX;
         const dy = e.changedTouches[0].clientY - detailSwipeStartY;
-        if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
           navigateDetail(dx < 0 ? 1 : -1);
         }
       }, { passive: true });
