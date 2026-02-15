@@ -674,6 +674,83 @@
       background: var(--border);
     }
 
+    /* Detail nav arrows */
+    .modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: var(--bg);
+      color: var(--text-secondary);
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: all var(--transition);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      opacity: 0.85;
+    }
+    .modal-nav:hover {
+      background: var(--primary);
+      color: #fff;
+      opacity: 1;
+      transform: translateY(-50%) scale(1.1);
+    }
+    .modal-nav:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+    .modal-nav-prev {
+      left: -22px;
+    }
+    .modal-nav-next {
+      right: -22px;
+    }
+    @media (max-width: 700px) {
+      .modal-nav-prev { left: 6px; }
+      .modal-nav-next { right: 6px; }
+      .modal-nav {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+        opacity: 0.7;
+      }
+    }
+
+    /* Detail dish counter */
+    .modal-dish-counter {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      padding: 4px 0 0;
+      letter-spacing: 0.5px;
+    }
+
+    /* Slide transition for modal content */
+    #modalContent {
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    #modalContent.slide-out-left {
+      opacity: 0;
+      transform: translateX(-60px);
+    }
+    #modalContent.slide-out-right {
+      opacity: 0;
+      transform: translateX(60px);
+    }
+    #modalContent.slide-in-left {
+      opacity: 0;
+      transform: translateX(60px);
+    }
+    #modalContent.slide-in-right {
+      opacity: 0;
+      transform: translateX(-60px);
+    }
+
     .modal-hero {
       padding: 32px 32px 20px;
       text-align: center;
@@ -1751,6 +1828,8 @@
     <div class="modal">
       <div class="modal-handle"></div>
       <button class="modal-close" onclick="closeModal('detailModal')">✕</button>
+      <button class="modal-nav modal-nav-prev" id="detailPrev" onclick="navigateDetail(-1)" title="Món trước">‹</button>
+      <button class="modal-nav modal-nav-next" id="detailNext" onclick="navigateDetail(1)" title="Món sau">›</button>
       <div id="modalContent"></div>
     </div>
   </div>
@@ -2101,6 +2180,7 @@
       setupScrollObserver();
       setupScrollTop();
       initTheme();
+      initDetailSwipe();
     });
 
     function setHeroDate() {
@@ -2212,7 +2292,77 @@
     }
 
     // ========== DETAIL MODAL ==========
+    let currentDetailId = null;
+    let detailSwipeStartX = 0;
+    let detailSwipeStartY = 0;
+    let detailSwiping = false;
+
+    function getFilteredDishIds() {
+      // Return dish IDs in the order they appear in current view
+      return dishes.map(d => d.id);
+    }
+
+    function navigateDetail(direction) {
+      if (!currentDetailId) return;
+      const ids = getFilteredDishIds();
+      const currentIdx = ids.indexOf(currentDetailId);
+      if (currentIdx === -1) return;
+      const nextIdx = (currentIdx + direction + ids.length) % ids.length;
+      const nextId = ids[nextIdx];
+
+      const content = document.getElementById('modalContent');
+      const slideOut = direction > 0 ? 'slide-out-left' : 'slide-out-right';
+      const slideIn = direction > 0 ? 'slide-in-left' : 'slide-in-right';
+
+      content.classList.add(slideOut);
+      setTimeout(() => {
+        content.classList.remove(slideOut);
+        content.classList.add(slideIn);
+        renderDetailContent(nextId);
+        // Force reflow then remove slide-in
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            content.classList.remove(slideIn);
+          });
+        });
+      }, 200);
+    }
+
+    function initDetailSwipe() {
+      const modal = document.querySelector('#detailModal .modal');
+      modal.addEventListener('touchstart', (e) => {
+        detailSwipeStartX = e.touches[0].clientX;
+        detailSwipeStartY = e.touches[0].clientY;
+        detailSwiping = true;
+      }, { passive: true });
+
+      modal.addEventListener('touchend', (e) => {
+        if (!detailSwiping) return;
+        detailSwiping = false;
+        const dx = e.changedTouches[0].clientX - detailSwipeStartX;
+        const dy = e.changedTouches[0].clientY - detailSwipeStartY;
+        if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+          navigateDetail(dx < 0 ? 1 : -1);
+        }
+      }, { passive: true });
+    }
+
+    // Keyboard nav for detail modal
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('detailModal');
+      if (!modal.classList.contains('active')) return;
+      if (e.key === 'ArrowLeft') { e.preventDefault(); navigateDetail(-1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); navigateDetail(1); }
+    });
+
     function openDetail(id) {
+      currentDetailId = id;
+      renderDetailContent(id);
+      openModal('detailModal');
+    }
+
+    function renderDetailContent(id) {
+      currentDetailId = id;
       const dish = dishes.find(d => d.id === id);
       if (!dish) return;
 
@@ -2281,6 +2431,8 @@
       ${dish.addresses.map(a => `<div class="address-item">${a}</div>`).join('')}
     </div>` : ''}
 
+    <div class="modal-dish-counter">${(() => { const ids = getFilteredDishIds(); return (ids.indexOf(dish.id) + 1) + ' / ' + ids.length; })()}</div>
+
     <div class="modal-footer">
       <button class="btn-choose" onclick="chooseDish(${dish.id})">
         ✅ Chọn món này hôm nay
@@ -2288,9 +2440,7 @@
     </div>
   `;
 
-      openModal('detailModal');
-
-      // Animate after open
+      // Animate after render
       setTimeout(() => {
         document.getElementById('calRing').style.strokeDashoffset = offset;
         animateCount('calNum', 0, dish.calories, 800);
